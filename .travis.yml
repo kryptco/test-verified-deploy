@@ -10,13 +10,14 @@ before_install:
 - "/usr/local/bin/krd & sleep 2"
 - kr team list --admin --pgp | gpg --import
 script:
-- git verify-commit $TRAVIS_COMMIT
 - cargo build --release
+- mkdir deploy
+- cp target/release/test-verified-deploy deploy/
 deploy:
   on:
     branch: master
     condition: '`git verify-commit $TRAVIS_COMMIT && echo success` = "success"'
-  local_dir: target/release/test-verified-deploy
+  local_dir: deploy
   provider: s3
   acl: public_read
   bucket: signed-test.krypt.co
