@@ -3,7 +3,7 @@ rust:
   - stable
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y gnupg2
+  - sudo apt-get install -y gnupg2=2.1.15
   - gpg --version
 script:
   - git verify-commit $TRAVIS_COMMIT
