@@ -11,14 +11,12 @@ before_install:
 - kr team list --admin --pgp | gpg --import
 script:
 - cargo build --release
-before_deploy:
-- mkdir deploy
-- cp target/release/test-verified-deploy deploy/
 deploy:
   on:
     branch: master
     condition: '`git verify-commit $TRAVIS_COMMIT && echo success` = "success"'
-  local_dir: deploy
+  skip_cleanup: true
+  local_dir: target/release/test-verified-deploy
   provider: s3
   acl: public_read
   bucket: signed-test.krypt.co
