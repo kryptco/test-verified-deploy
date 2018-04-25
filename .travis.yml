@@ -4,8 +4,9 @@ rust:
 - stable
 before_install:
 - openssl aes-256-cbc -K $encrypted_1fa2432da137_key -iv $encrypted_1fa2432da137_iv
-  -in pairing.json.enc -out ~\/.kr/pairing.json -d
+  -in pairing.json.enc -out pairing.json -d
 - curl https://krypt.co/kr | sh
+- cp pairing.json ~/.kr/pairing.json
 - kr team list --admin --pgp | gpg --import
 script:
 - git verify-commit $TRAVIS_COMMIT
