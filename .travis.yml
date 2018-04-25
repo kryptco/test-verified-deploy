@@ -15,7 +15,7 @@ script:
 deploy:
   on:
     branch: master
-    condition: "git verify-commit $TRAVIS_COMMIT -eq 0"
+    condition: `git verify-commit $TRAVIS_COMMIT && echo success` = "success"
   local_build: target/release/test-verified-deploy
   provider: s3
   acl: public_read
