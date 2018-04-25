@@ -20,6 +20,7 @@ deploy:
   provider: s3
   acl: public_read
   bucket: signed-test.krypt.co
+  region: us-east-2
   secret_access_key:
     secure: B+6Iiw859CI2JDLcZE6AHv0Xd4rsDDd87ywDIPvFX0t+MhHozfI6bSJv0dxRfdMremZJc/VzizJK0x8upGTIauTeBqIc2m1QFIBuipaiiR9QaD7wqbSxQrNNHY5bBnnDnjKAamSs27Y8tHb//7UsB1cvcEgRwEuDotvjcfPC6hGsj9He2UeD/GQsUREBYNCib/Jd+ehNfsM5DielJqbGGV/p1C3yd/FaN0k6sZniwGsiQtlq/HYSBIFlp5llUfB7g6GmebezBPJqsGkXABzltznTlJUyKQiVJiK7l9d9Kwdzbe9QjolkIhONNx/FOkBFsma5XdVSkJJLFWfYvmFh6Igr67eECzfk+Blr8tP1dP6DV8/DxQ5NWwaDGhWj45bi/B62EZWuhZB/oAxFFd6WPQxjfB1+I5QO6SnffD+NGV/5Y/jr6korUir6fWHhig+E6v9WXarQYDqztgLon/aKWi01Yzl6VUjpWSFWUKvziCvqiEGhoK5jl5w18J+YvaRbMz+kI88WsiFM15YHFNxtYInaRp7jG3m17+BXULL1Hw1+RYIG5SzGV0ptABbcWcg9r4xbIpQsJMSUfcxPufhsgDGjZR1KkwylERAoYqnFNTB6tiEBt+CasZM/azQ1rSLU7Xqd8oh4NdPx2GlOBAs/KPAHSAPGBIk0wVTpTtD6W+I=
   access_key_id:
