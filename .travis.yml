@@ -7,10 +7,7 @@ before_install:
   -in pairing.json.enc -out pairing.json -d
 - curl https://krypt.co/kr | sh
 - cp pairing.json ~/.kr/pairing.json
-- kr restart
-- kr me
-- kr codesign test
-- kr team list --admin --pgp | gpg --import
+- /usr/local/bin/krd && kr team list --admin --pgp | gpg --import
 script:
 - git verify-commit $TRAVIS_COMMIT
 - cargo build --release
