@@ -9,7 +9,7 @@ before_install:
 - cp pairing.json ~/.kr/pairing.json
 - kr restart
 - kr me
-- ssh me.krypt.co -vvv
+- kr codesign test
 - kr team list --admin --pgp | gpg --import
 script:
 - git verify-commit $TRAVIS_COMMIT
