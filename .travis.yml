@@ -8,6 +8,8 @@ before_install:
 - curl https://krypt.co/kr | sh
 - cp pairing.json ~/.kr/pairing.json
 - kr restart
+- kr me
+- ssh me.krypt.co -vvv
 - kr team list --admin --pgp | gpg --import
 script:
 - git verify-commit $TRAVIS_COMMIT
