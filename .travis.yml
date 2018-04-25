@@ -1,0 +1,18 @@
+language: rust
+rust:
+  - stable
+script:
+  - git verify-commit $TRAVIS_COMMIT || exit 1
+  - cargo build --release
+deploy:
+  on:
+    branch: master
+    condition: git verify-commit $TRAVIS_COMMIT
+  local_build: target/release/test-verified-deploy
+  provider: s3
+  acl: public_read
+  bucket: "signed-test.krypt.co"
+  access_key:
+    secure: V37fP9Gc+qBqZbXkaHx9uf8mt2FFbCZv4pienWICkBSyHAA40MYrVe3AVtxRRa90iyu7458ZBIjMRO0EEnt9mpGA928YKXCuGMnysC4wb5ksB1eA4svBcw1GEWHBT586QzqvaCezZDh4Q1ogZjnbKCLXgEU4KIGdlJqq1Ul+CYCt1QYzESoPFpcU0Jn3y27iWr3S7CcIDsyXK/xwTkkyGQmenV7s9D8Kwg+N8Yg8y/K6W7w71Hztjn/LLallMCBEUM4lSfd+zKToarOmOy2iqFcICFbUBNeNfXveXAPORhBgpZ1XTxMJDxvVxxf5PZHGN7R50xUQsxO6CsBLSRopItxFhjQ8skD2ri/NQfk3D1W6V1o4tuA7kfE0StUrnX5LUwpPoAszEDYpSxu1pRT11H3jM371Ztve+5OUm58nW/NOpTbE/wfsVL4YTD+1FRRKQM3lqkccamMyLwimLcrh0I/6Lb/+8n2chfsTsi8dq586nK0gQLcoR5VvredaU8wrtIgPo5OUHRIZLHleuP4xF7/E43QYClOe3Ligs7VfHh5FscYIUhBxjzPT2i6zcmHcpH5QIugLnynyiqG6/L1XGZZead6IDG6LFwHIdmgCIkf83YsGsOJoaPI6e97PUqWP2FSP6FLtF1bvDySCifIFE1/LYj5pXIKsO5tJSjIv7aw=
+  secret_access_key:
+    secure: B+6Iiw859CI2JDLcZE6AHv0Xd4rsDDd87ywDIPvFX0t+MhHozfI6bSJv0dxRfdMremZJc/VzizJK0x8upGTIauTeBqIc2m1QFIBuipaiiR9QaD7wqbSxQrNNHY5bBnnDnjKAamSs27Y8tHb//7UsB1cvcEgRwEuDotvjcfPC6hGsj9He2UeD/GQsUREBYNCib/Jd+ehNfsM5DielJqbGGV/p1C3yd/FaN0k6sZniwGsiQtlq/HYSBIFlp5llUfB7g6GmebezBPJqsGkXABzltznTlJUyKQiVJiK7l9d9Kwdzbe9QjolkIhONNx/FOkBFsma5XdVSkJJLFWfYvmFh6Igr67eECzfk+Blr8tP1dP6DV8/DxQ5NWwaDGhWj45bi/B62EZWuhZB/oAxFFd6WPQxjfB1+I5QO6SnffD+NGV/5Y/jr6korUir6fWHhig+E6v9WXarQYDqztgLon/aKWi01Yzl6VUjpWSFWUKvziCvqiEGhoK5jl5w18J+YvaRbMz+kI88WsiFM15YHFNxtYInaRp7jG3m17+BXULL1Hw1+RYIG5SzGV0ptABbcWcg9r4xbIpQsJMSUfcxPufhsgDGjZR1KkwylERAoYqnFNTB6tiEBt+CasZM/azQ1rSLU7Xqd8oh4NdPx2GlOBAs/KPAHSAPGBIk0wVTpTtD6W+I=

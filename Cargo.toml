@@ -1,0 +1,6 @@
+[package]
+name = "test-verified-deploy"
+version = "0.1.0"
+authors = ["Alex Grinman <me@alexgr.in>"]
+
+[dependencies]
