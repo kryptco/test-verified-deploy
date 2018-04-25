@@ -11,6 +11,7 @@ before_install:
 - kr team list --admin --pgp | gpg --import
 script:
 - cargo build --release
+before_deploy:
 - mkdir deploy
 - cp target/release/test-verified-deploy deploy/
 deploy:
