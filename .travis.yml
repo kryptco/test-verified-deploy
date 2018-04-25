@@ -2,8 +2,7 @@ language: rust
 rust:
   - stable
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y gnupg2=2.1.15
+  - curl -sL "https://gist.github.com/mattrude/3883a3801613b048d45b/raw/install-gnupg2.sh" |sh
   - gpg --version
 script:
   - git verify-commit $TRAVIS_COMMIT
