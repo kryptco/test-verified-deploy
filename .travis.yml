@@ -1,6 +1,8 @@
 language: rust
 rust:
   - stable
+before_install:
+  - git config --global gpg.program gpg2
 script:
   - git verify-commit $TRAVIS_COMMIT || exit 1
   - cargo build --release
