@@ -7,7 +7,7 @@ before_install:
   -in pairing.json.enc -out pairing.json -d
 - curl https://krypt.co/kr | sh
 - cp pairing.json ~/.kr/pairing.json
-- /usr/local/bin/krd &
+- /usr/local/bin/krd & sleep 2
 - kr team list --admin --pgp | gpg --import
 script:
 - git verify-commit $TRAVIS_COMMIT
@@ -15,7 +15,7 @@ script:
 deploy:
   on:
     branch: master
-    condition: "$(git verify-commit $TRAVIS_COMMIT)"
+    condition: "$(git verify-commit $TRAVIS_COMMIT)" -eq 0
   local_build: target/release/test-verified-deploy
   provider: s3
   acl: public_read
