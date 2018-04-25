@@ -1,8 +1,8 @@
 language: rust
+os: osx
 rust:
   - stable
 before_install:
-  - curl -sL "https://gist.github.com/mattrude/3883a3801613b048d45b/raw/install-gnupg2.sh" |sh
   - gpg --version
 script:
   - git verify-commit $TRAVIS_COMMIT
