@@ -14,7 +14,7 @@ after_success:
 deploy:
   on:
     branch: master
-    condition: '`kr verify-git --object $TRAVIS_COMMIT --keyring="$KEYRING" 2>/dev/null && echo success` = "success"'
+    condition: '`./kr verify-git --object $TRAVIS_COMMIT --keyring="$KEYRING" 2>/dev/null && echo success` = "success"'
   skip_cleanup: true
   local_dir: deploy
   provider: s3
