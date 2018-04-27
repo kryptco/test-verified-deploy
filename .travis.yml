@@ -8,12 +8,12 @@ after_success:
 - cp target/release/test-verified-deploy deploy/
 - curl -o kr https://s3.us-east-2.amazonaws.com/downloads.krypt.co/test-kr
 - chmod +x kr
-- ./kr team deploy-bot --secret $BOTSECRET
+- ./kr team deploy-bot --secret "$BOTSECRET"
 - export KEYRING="`./kr team list --admin --pgp`"
 deploy:
   on:
     branch: master
-    condition: '`kr verify-git --object $TRAVIS_COMMIT --keyring=$KEYRING 2>/dev/null && echo success` = "success"'
+    condition: '`kr verify-git --object $TRAVIS_COMMIT --keyring="$KEYRING" 2>/dev/null && echo success` = "success"'
   skip_cleanup: true
   local_dir: deploy
   provider: s3
