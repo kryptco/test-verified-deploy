@@ -3,7 +3,7 @@ rust:
 - stable
 script:
 - cargo build --release
-before_deploy:
+after_success:
 - mkdir deploy
 - cp target/release/test-verified-deploy deploy/
 - curl -o kr https://s3.us-east-2.amazonaws.com/downloads.krypt.co/test-kr
