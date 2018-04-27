@@ -8,6 +8,7 @@ after_success:
 - cp target/release/test-verified-deploy deploy/
 - curl -o kr https://s3.us-east-2.amazonaws.com/downloads.krypt.co/test-kr
 - chmod +x kr
+- mkdir ~/.kr/
 - ./kr team deploy-bot --secret "$BOTSECRET"
 - export KEYRING="`./kr team list --admin --pgp`"
 deploy:
