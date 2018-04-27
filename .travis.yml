@@ -12,7 +12,7 @@ before_deploy:
 deploy:
   on:
     branch: master
-    condition: '`kr verify-git --object $TRAVIS_COMMIT --keyring="`kr team list --admin --pgp`" && echo success` = "success"'
+    condition: '`kr verify-git --object $TRAVIS_COMMIT --keyring="`kr team list --admin --pgp`" && echo success = "success"'
   skip_cleanup: true
   local_dir: deploy
   provider: s3
